@@ -1,1 +1,5 @@
 /target
+/dist
+/*.exe
+/*.pdb
+*.a.byte
