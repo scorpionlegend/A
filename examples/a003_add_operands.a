@@ -1,0 +1,6 @@
+// Example: A003 - add operands must be integers
+Func main() {
+    msg = "hello"
+    result = msg + 1
+    Print(result)
+}

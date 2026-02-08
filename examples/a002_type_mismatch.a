@@ -1,0 +1,6 @@
+// Example: A002 - type mismatch in assignment
+Func main() {
+    x: i32 = 1
+    x = true
+    Print(x)
+}

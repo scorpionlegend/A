@@ -1,0 +1,7 @@
+// Example: A007 - if condition must be bool
+Func main() {
+    x = 5
+    If x then {
+        Print("X is truthy")
+    }
+}

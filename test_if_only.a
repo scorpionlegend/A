@@ -1,0 +1,9 @@
+Func main() {
+    If 1 > 0 then {
+        Print("yes")
+    } Else {
+        Print("no")
+    }
+    x = 1 + 2
+    Print(x)
+}

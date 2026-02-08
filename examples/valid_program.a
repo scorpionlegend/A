@@ -1,0 +1,9 @@
+// Example: Valid A program
+Func main() {
+    x = 1
+    y = 2
+    z = x + y
+    If z > 2 then {
+        Print(z)
+    }
+}

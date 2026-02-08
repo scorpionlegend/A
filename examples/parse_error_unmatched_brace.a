@@ -1,0 +1,6 @@
+// Example: Parse error - unmatched closing brace
+Func main() {
+    Let x = 1
+    Print(x)
+} // Extra brace
+}

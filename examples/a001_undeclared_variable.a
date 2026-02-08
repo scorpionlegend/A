@@ -1,0 +1,5 @@
+// Example: A001 - use of undeclared variable
+Func main() {
+    y = x + 1
+    Print(y)
+}

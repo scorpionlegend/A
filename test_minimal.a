@@ -1,0 +1,4 @@
+Func main() {
+    x = 1 + 2
+    Print(x)
+}
