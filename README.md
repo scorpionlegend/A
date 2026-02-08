@@ -112,6 +112,8 @@ Update expects release assets named:
 - `a-windows-x86_64.exe`
 - `a-macos-x86_64`
 - `a-linux-x86_64`
+- `a-macos-aarch64`
+- `a-linux-aarch64`
 
 ## Example
 
