@@ -8,7 +8,6 @@ use serde::{Deserialize, Serialize};
 pub const BYTECODE_VERSION: u32 = 1;
 pub const BYTECODE_EXT: &str = "a.byte";
 pub const BYTECODE_SUFFIX: &str = ".a.byte";
-<<<<<<< HEAD
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[allow(dead_code)]
@@ -59,58 +58,6 @@ pub enum Instr {
     Halt,
 }
 
-=======
-
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[allow(dead_code)]
-pub enum Value {
-    Int(i64),
-    Bool(bool),
-    Char(char),
-    Str(String),
-    Unit,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[allow(dead_code)]
-pub enum Instr {
-    /// Push a constant onto the stack
-    Const(Value),
-
-    /// Read a line from stdin (text input), push as Value::Str
-    ReadLine,
-
-    /// Pop and print N values (simple version: prints with spaces)
-    Print(usize),
-
-    /// Arithmetic (expects Int, Int)
-    AddInt,
-
-    /// Load a local variable slot onto the stack
-    LoadLocal(usize),
-
-    /// Store top of stack into a local variable slot
-    StoreLocal(usize),
-
-    /// Jump to absolute instruction index
-    Jump(usize),
-
-    /// Pop a boolean and jump to index if it is false
-    JumpIfFalse(usize),
-
-    /// Comparison operations (pop right, pop left, push Bool)
-    CmpEq,
-    CmpNe,
-    CmpLt,
-    CmpLe,
-    CmpGt,
-    CmpGe,
-
-    /// Halt program
-    Halt,
-}
-
->>>>>>> 4072525fcc93c620c1fa324989719f39492f1901
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[allow(dead_code)]
 pub struct Chunk {
@@ -149,7 +96,6 @@ pub fn decode_chunk(bytes: &[u8]) -> Result<Chunk, String> {
     }
     Ok(file.chunk)
 }
-<<<<<<< HEAD
 
 impl Chunk {
     pub fn new() -> Self {
@@ -179,34 +125,3 @@ impl Chunk {
         }
     }
 }
-=======
-
-impl Chunk {
-    pub fn new() -> Self {
-        Self {
-            code: Vec::new(),
-            consts: Vec::new(),
-            locals: Vec::new(),
-        }
-    }
-
-    pub fn push(&mut self, i: Instr) {
-        self.code.push(i);
-    }
-
-    #[allow(dead_code)]
-    pub fn add_const(&mut self, v: Value) -> usize {
-        self.consts.push(v);
-        self.consts.len() - 1
-    }
-
-    pub fn ensure_local(&mut self, name: &str) -> usize {
-        if let Some(i) = self.locals.iter().position(|n| n == name) {
-            i
-        } else {
-            self.locals.push(name.to_string());
-            self.locals.len() - 1
-        }
-    }
-}
->>>>>>> 4072525fcc93c620c1fa324989719f39492f1901

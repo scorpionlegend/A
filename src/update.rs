@@ -152,13 +152,15 @@ fn temp_path_next_to(exe_path: &Path) -> Result<PathBuf, String> {
     Ok(parent.join(tmp_name))
 }
 
-fn make_executable(path: &Path) -> Result<(), String> {
+fn make_executable(_path: &Path) -> Result<(), String> {
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
-        let mut perms = fs::metadata(path).map_err(|e| e.to_string())?.permissions();
+        let mut perms = fs::metadata(_path)
+            .map_err(|e| e.to_string())?
+            .permissions();
         perms.set_mode(0o755);
-        fs::set_permissions(path, perms).map_err(|e| e.to_string())?;
+        fs::set_permissions(_path, perms).map_err(|e| e.to_string())?;
     }
     Ok(())
 }
