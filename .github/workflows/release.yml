@@ -48,7 +48,17 @@ jobs:
         id: collect
         shell: bash
         run: |
-          files="$(find dist-collect -type f | sort)"
+          files="$(
+            find dist-collect -type f \
+              \( \
+                -name 'a-windows-*.exe' -o \
+                -name 'a-windows-*.zip' -o \
+                -name 'a-linux-*.tar.gz' -o \
+                -name 'a-linux-*' -o \
+                -name 'a-macos-*.tar.gz' -o \
+                -name 'a-macos-*' \
+              \) | sort -u
+          )"
           {
             echo "files<<EOF"
             echo "$files"
